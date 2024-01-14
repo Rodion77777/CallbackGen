@@ -1,5 +1,6 @@
 package com.employee.CallbackGen.business.pages.volia;
 
+import com.employee.CallbackGen.business.managers.Screenshot;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -21,28 +22,28 @@ public class VoliaPage {
     private final By fieldPhoneNumber = By.cssSelector("[name=\"phone\"]");
     private final By submitButton = By.cssSelector("[class=\"b-form-btn\"][type=\"submit\"]");
 
-    public VoliaPage openAddress(){
+    public VoliaPage openAddress() {
         driver.get(address);
         return this;
     }
 
-    private WebElement getCallbackButton(){
+    private WebElement getCallbackButton() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(callbackButton));
         return driver.findElement(callbackButton);
     }
 
-    public VoliaPage callbackButtonClick(){
+    public VoliaPage callbackButtonClick() {
         wait.until(ExpectedConditions.elementToBeClickable(callbackButton));
         getCallbackButton().click();
         return this;
     }
 
-    private WebElement getFieldFirstname(){
+    private WebElement getFieldFirstname() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(fieldFirstname));
         return driver.findElement(fieldFirstname);
     }
 
-    public VoliaPage fieldFirstnameSendKeys(String firstname){
+    public VoliaPage fieldFirstnameSendKeys(String firstname) {
         wait.until(ExpectedConditions.elementToBeClickable(fieldFirstname));
         getFieldFirstname().click();
         getFieldFirstname().clear();
@@ -50,20 +51,21 @@ public class VoliaPage {
         return this;
     }
 
-    private WebElement getFieldPhoneNumber(){
+    private WebElement getFieldPhoneNumber() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(fieldPhoneNumber));
         return driver.findElement(fieldPhoneNumber);
     }
 
-    public VoliaPage fieldPhoneNumberSendKeys(String phoneNumber){
+    public VoliaPage fieldPhoneNumberSendKeys(String phoneNumber) {
         wait.until(ExpectedConditions.elementToBeClickable(fieldPhoneNumber));
         getFieldPhoneNumber().click();
         getFieldPhoneNumber().clear();
         getFieldPhoneNumber().sendKeys(phoneNumber);
+        new Screenshot(driver).takeScreenshot();
         return this;
     }
 
-    private WebElement getSubmitButton(){
+    private WebElement getSubmitButton() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(submitButton));
         return driver.findElement(submitButton);
     }
@@ -71,5 +73,6 @@ public class VoliaPage {
     public void submitButtonClick() {
         wait.until(ExpectedConditions.elementToBeClickable(submitButton));
         getSubmitButton().click();
+        new Screenshot(driver).takeScreenshot();
     }
 }
