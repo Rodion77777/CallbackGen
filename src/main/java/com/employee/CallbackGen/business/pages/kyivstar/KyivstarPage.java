@@ -1,5 +1,6 @@
 package com.employee.CallbackGen.business.pages.kyivstar;
 
+import com.employee.CallbackGen.business.managers.Screenshot;
 import com.employee.CallbackGen.business.pages.AExampleWebPage;
 import com.employee.CallbackGen.business.pages.IExampleWebPage;
 import lombok.Getter;
@@ -64,7 +65,8 @@ public class KyivstarPage extends AExampleWebPage implements IExampleWebPage {
     public KyivstarPage fieldPhoneNumberSendKeys(String phoneNumber){
         getFieldPhoneNumber().click();
         getFieldPhoneNumber().clear();
-        getFieldPhoneNumber().sendKeys(phoneNumber);
+        getFieldPhoneNumber().sendKeys(phoneNumber.substring(4));
+        new Screenshot(driver).takeScreenshot();
         return this;
     }
 
@@ -78,5 +80,6 @@ public class KyivstarPage extends AExampleWebPage implements IExampleWebPage {
     public void submitButtonClick(){
         wait.until(ExpectedConditions.elementToBeClickable(callbackButton));
         getSubmitButton().click();
+        new Screenshot(driver).takeScreenshot();
     }
 }
