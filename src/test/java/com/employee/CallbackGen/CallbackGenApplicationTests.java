@@ -22,7 +22,6 @@ class CallbackGenApplicationTests {
 	public static ChromeOptions options;
 	public static ChromeDriver driver;
 	public static WebDriverWait wait;
-	public static String webLink = "https://www.youtube.com/";
 	public static String kyivstarLink = "https://my-kyivstar.com.ua/?gclid=EAIaIQobChMIk6KLiZrj_QIVr0aRBR3vIwVTEAAYASAAEgJj3fD_BwE";
 
 	@BeforeAll
@@ -43,7 +42,6 @@ class CallbackGenApplicationTests {
 
 		options = null;
 		driver = null;
-		webLink = null;
 	}
 
 	@Test
