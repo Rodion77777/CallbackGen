@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  cbg:
+    build: ./
+    container_name: 'callback-gen'
+    ports:
+      - "8088:8088"
+    networks:
+      - grid
+
+networks:
+  grid:
+    external: true
