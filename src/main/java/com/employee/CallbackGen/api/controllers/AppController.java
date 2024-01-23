@@ -2,6 +2,8 @@ package com.employee.CallbackGen.api.controllers;
 
 import com.employee.CallbackGen.business.pages.atl.ATLPage;
 import com.employee.CallbackGen.business.pages.atl.ATLTest;
+import com.employee.CallbackGen.business.pages.dimAKB.DimAKBPage;
+import com.employee.CallbackGen.business.pages.dimAKB.DimAKBTest;
 import com.employee.CallbackGen.business.pages.kyivstar.KyivstarPage;
 import com.employee.CallbackGen.business.pages.kyivstar.KyivstarTest;
 import com.employee.CallbackGen.business.pages.shypShyna.ShypShynaPage;
@@ -65,12 +67,14 @@ public class AppController {
 
     private void destroyStart(String s) {
         String name = "Дмитрий";
+        String city = "Запорожье";
 
         if (!phoneNumberVerification(s)) return;
-        new KyivstarTest(new KyivstarPage(driver, wait)).start("Запорожье", s);
+        new KyivstarTest(new KyivstarPage(driver, wait)).start(city, s);
         new VoliaTest(new VoliaPage(driver, wait)).start(name, s);
         new ShypShynaTest(new ShypShynaPage(driver, wait)).start(name, s);
         new ATLTest(new ATLPage(driver, wait)).start(s);
+        new DimAKBTest(new DimAKBPage(driver, wait)).start(name, s);
     }
 
     private static boolean phoneNumberVerification (String phoneNumber) {
