@@ -1,7 +1,11 @@
 package com.employee.CallbackGen.api.controllers;
 
+import com.employee.CallbackGen.business.pages.atl.ATLPage;
+import com.employee.CallbackGen.business.pages.atl.ATLTest;
 import com.employee.CallbackGen.business.pages.kyivstar.KyivstarPage;
 import com.employee.CallbackGen.business.pages.kyivstar.KyivstarTest;
+import com.employee.CallbackGen.business.pages.shypShyna.ShypShynaPage;
+import com.employee.CallbackGen.business.pages.shypShyna.ShypShynaTest;
 import com.employee.CallbackGen.business.pages.volia.VoliaPage;
 import com.employee.CallbackGen.business.pages.volia.VoliaTest;
 import com.employee.CallbackGen.business.services.webDrivers.WebDriverConfig;
@@ -60,9 +64,13 @@ public class AppController {
     }
 
     private void destroyStart(String s) {
+        String name = "Дмитрий";
+
         if (!phoneNumberVerification(s)) return;
         new KyivstarTest(new KyivstarPage(driver, wait)).start("Запорожье", s);
-        new VoliaTest(new VoliaPage(driver, wait)).start("Дмитрий", s);
+        new VoliaTest(new VoliaPage(driver, wait)).start(name, s);
+        new ShypShynaTest(new ShypShynaPage(driver, wait)).start(name, s);
+        new ATLTest(new ATLPage(driver, wait)).start(s);
     }
 
     private static boolean phoneNumberVerification (String phoneNumber) {
