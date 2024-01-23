@@ -18,7 +18,7 @@ public class VoliaPage {
     @Getter private final String address = "https://volia-promo.com.ua/?partner=google_cpc_wp_search_brand_promo_all&gclid=EAIaIQobChMItJu_gIbk_QIVK0aRBR10QwmSEAAYASAAEgLvefD_BwE";
 
     private final By callbackButton = By.cssSelector(".t182__buttons a:nth-of-type(1)");
-    private final By fieldFirstname = By.cssSelector("[name=\"firstname\"]");
+    private final By fieldFirstName = By.cssSelector("[name=\"firstname\"]");
     private final By fieldPhoneNumber = By.cssSelector("[name=\"phone\"]");
     private final By submitButton = By.cssSelector("[class=\"b-form-btn\"][type=\"submit\"]");
 
@@ -38,16 +38,16 @@ public class VoliaPage {
         return this;
     }
 
-    private WebElement getFieldFirstname() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(fieldFirstname));
-        return driver.findElement(fieldFirstname);
+    private WebElement getFieldFirstName() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(fieldFirstName));
+        return driver.findElement(fieldFirstName);
     }
 
     public VoliaPage fieldFirstnameSendKeys(String firstname) {
-        wait.until(ExpectedConditions.elementToBeClickable(fieldFirstname));
-        getFieldFirstname().click();
-        getFieldFirstname().clear();
-        getFieldFirstname().sendKeys(firstname);
+        wait.until(ExpectedConditions.elementToBeClickable(fieldFirstName));
+        getFieldFirstName().click();
+        getFieldFirstName().clear();
+        getFieldFirstName().sendKeys(firstname);
         return this;
     }
 
