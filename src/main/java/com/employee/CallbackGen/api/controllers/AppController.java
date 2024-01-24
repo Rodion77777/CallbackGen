@@ -1,9 +1,15 @@
 package com.employee.CallbackGen.api.controllers;
 
+import com.employee.CallbackGen.business.pages.aService.AServicePage;
+import com.employee.CallbackGen.business.pages.aService.AServiceTest;
+import com.employee.CallbackGen.business.pages.appleLab.AppleLabPage;
+import com.employee.CallbackGen.business.pages.appleLab.AppleLabTest;
 import com.employee.CallbackGen.business.pages.atl.ATLPage;
 import com.employee.CallbackGen.business.pages.atl.ATLTest;
 import com.employee.CallbackGen.business.pages.dimAKB.DimAKBPage;
 import com.employee.CallbackGen.business.pages.dimAKB.DimAKBTest;
+import com.employee.CallbackGen.business.pages.iStore.IStorePage;
+import com.employee.CallbackGen.business.pages.iStore.IStoreTest;
 import com.employee.CallbackGen.business.pages.kyivstar.KyivstarPage;
 import com.employee.CallbackGen.business.pages.kyivstar.KyivstarTest;
 import com.employee.CallbackGen.business.pages.shypShyna.ShypShynaPage;
@@ -75,6 +81,9 @@ public class AppController {
         new ShypShynaTest(new ShypShynaPage(driver, wait)).start(name, s);
         new ATLTest(new ATLPage(driver, wait)).start(s);
         new DimAKBTest(new DimAKBPage(driver, wait)).start(name, s);
+        new AServiceTest(new AServicePage(driver, wait)).start(s);
+        new IStoreTest(new IStorePage(driver, wait)).start(s);
+        new AppleLabTest(new AppleLabPage(driver, wait)).start(name, s);
     }
 
     private static boolean phoneNumberVerification (String phoneNumber) {
